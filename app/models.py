@@ -1,5 +1,4 @@
 # from pydantic import BaseModel
-from tkinter import CASCADE
 from sqlalchemy import Boolean, Column, Integer, String, TIMESTAMP, text, ForeignKey
 from sqlalchemy.orm import relationship
 from . database import Base
@@ -14,7 +13,7 @@ class Post(Base):
     created_at = Column(TIMESTAMP(timezone=True),
                         nullable=False, server_default=text('NOW()'))
     user_id = Column(Integer, ForeignKey(
-        'users.id', ondelete=CASCADE), nullable=False)
+        'users.id', ondelete="CASCADE"), nullable=False)
     user_info = relationship('User')
 
 
