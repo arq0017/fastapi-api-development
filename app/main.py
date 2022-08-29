@@ -11,12 +11,9 @@ from fastapi.middleware.cors import CORSMiddleware
 # models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
-app.include_router(posts.router)
-app.include_router(users.router)
-app.include_router(votes.router)
-app.include_router(auth.router)
 
-origins = ['https://www.google.com']
+origins = ["*"]
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
@@ -25,7 +22,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+app.include_router(posts.router)
+app.include_router(users.router)
+app.include_router(votes.router)
+app.include_router(auth.router)
 
-@app.get('/')
+
+@app.get("/")
 def root():
     return {'message': 'hello world!'}

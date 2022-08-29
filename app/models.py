@@ -2,11 +2,8 @@
 from tkinter import CASCADE
 from sqlalchemy import Boolean, Column, Integer, String, TIMESTAMP, text, ForeignKey
 from sqlalchemy.orm import relationship
-from sqlalchemy.ext.declarative import declarative_base
-
-
+from . database import Base
 # for creating ORM Models from Base class
-Base = declarative_base()
 
 class Post(Base):
     __tablename__ = "posts"
