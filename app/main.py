@@ -30,4 +30,4 @@ app.include_router(auth.router)
 
 @app.get("/")
 def root():
-    return {'message': 'hello python developers !!!'}
+    return {'message': 'Welcome to FAST API container !'}

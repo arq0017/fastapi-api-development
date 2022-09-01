@@ -7,7 +7,7 @@ class PostBase(BaseModel):
     title: str
     content: str
     published: bool = False
-    created_at: datetime
+    created_at: Optional[datetime]
 
 
 class PostCreate(PostBase):
