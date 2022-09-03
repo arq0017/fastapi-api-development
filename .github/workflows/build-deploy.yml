@@ -1,0 +1,18 @@
+name: Build and Deploy code
+
+on: 
+  push: 
+    branches: 
+      - 'main'
+
+jobs:
+  build: 
+
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.4.2
+      - name: say hello world!
+        run: echo "hello github actions"
+
