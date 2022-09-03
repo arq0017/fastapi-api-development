@@ -1,4 +1,3 @@
-from os import stat
 from sqlalchemy.orm import Session
 from fastapi import Depends, HTTPException, status, APIRouter
 from .. import schemas, utils, models

@@ -7,7 +7,7 @@ class PostBase(BaseModel):
     title: str
     content: str
     published: bool = False
-    created_at: Optional[datetime]
+    created_at: Optional[datetime] = datetime.now()
 
 
 class PostCreate(PostBase):

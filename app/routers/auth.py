@@ -17,12 +17,10 @@ async def login(usr_credentials: OAuth2PasswordRequestForm = Depends(), db: Sess
         models.User.email == usr_credentials.username).first()
     if not user:
         raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED, detail='incorrect userId')
+            status_code=status.HTTP_401_UNAUTHORIZED, detail='Incorrect Credentials')
     if not utils.verify_password(usr_credentials.password, user.password):
         raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED, detail='incorrect password')
+            status_code=status.HTTP_401_UNAUTHORIZED, detail='Incorrect Credentials')
     # generate token
     access_token = oauth2.create_access_token(data={"user_id": user.id})
-    # validate token
-    print(access_token)
     return {'access_token': access_token, 'token_type': 'Bearer'}
